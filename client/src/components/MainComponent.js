@@ -18,7 +18,8 @@ function Main() {
 	}
 
 	const completeTodo = async id => {
-		const data = await fetch('/todo/complete/' + id).then(res => res.json());
+		const data = await fetch("/todos/complete/" + id)
+		.then(res => res.json());
 
 		setTodos(todos => todos.map(todo => {
 			if (todo._id === data._id) {
@@ -31,7 +32,7 @@ function Main() {
 	}
 
 	const addTodo = async () => {
-		const data = await fetch("/todo/new", {
+		const data = await fetch("/todos/new", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json" 
@@ -48,14 +49,14 @@ function Main() {
 	}
 
 	const deleteTodo = async id => {
-		const data = await fetch('/todo/delete/' + id, { method: "DELETE" }).then(res => res.json());
+		const data = await fetch('/todos/delete/' + id, { method: "DELETE" }).then(res => res.json());
 
 		setTodos(todos => todos.filter(todo => todo._id !== data.result._id));
 	}
 
 	return (
 		<div className="App">
-			<h1>Welcome, Tyler</h1>
+			<h1>Welcome, Greg</h1>
 			<h4>Your tasks</h4>
 
 			<div className="todos">
